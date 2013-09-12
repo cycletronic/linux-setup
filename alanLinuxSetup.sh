@@ -1,4 +1,4 @@
-sudo apt-get install curl git vim tmux blender
+sudo apt-get install curl git vim tmux blender exuberant-ctags
 
 ssh-keygen -q
 
@@ -9,6 +9,7 @@ curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen
 
 cd ~/.vim/bundle
 git clone git://github.com/altercation/vim-colors-solarized.git
+git clone git://github.com/vim-scripts/taglist.vim.git
 
 cd ~
 git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git

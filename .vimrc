@@ -1,4 +1,4 @@
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+set nocompatible
 call pathogen#infect()
 filetype plugin indent on
 syntax enable
@@ -20,12 +20,24 @@ set guifont=Liberation\ Mono\ 12
 set ruler
 set history=200
 set wrap linebreak textwidth=0
+set scrolloff=10
 set nu!
 set smartcase
 syntax on
 set lazyredraw
 let g:scaleFontSize=12
 let g:scaleFontWidth=9
+
+set tags+=tags;~
+set path+=**
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+let mapleader=","
+
+" Commands specific to 5D Robotics
+command -nargs=1 FindInBehaviorEngine vimgrep <args> **/*.cpp **/*.c **/*.h **/*.txt **/*.config **/*.disabled
+command FindCurrentWordInBehaviorEngine vimgrep <cword> **/*.cpp **/*.c **/*.h **/*.txt **/*.config **/*.disabled
+map <leader>f :FindCurrentWordInBehaviorEngine<CR>
 
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
